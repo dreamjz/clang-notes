@@ -53,3 +53,11 @@ dkms.conf
 
 # vscode setting
 .vscode
+
+# vs file
+**/.vs
+**/Debug
+*.sln
+*.vcxproj
+*.filters
+*.user
