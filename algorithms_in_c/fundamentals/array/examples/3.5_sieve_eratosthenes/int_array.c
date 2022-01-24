@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-#define N 30
+#define N 10000
 
+// function declaration
 void printArray(int len,int a[]);
 
 int main()
@@ -35,9 +36,12 @@ int main()
     }
     printf("\n");
 
+    printf("Size of arr: %d bytes", sizeof(a));
+
     return 0;
 }
 
+// function definition
 void printArray(int len,int a[])
 {
     printf("Array: \n\t");
