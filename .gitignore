@@ -64,3 +64,4 @@ dkms.conf
 
 # compile results
 **/bin/
+**/build/

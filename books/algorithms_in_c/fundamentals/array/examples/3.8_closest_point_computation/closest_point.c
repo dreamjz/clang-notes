@@ -8,7 +8,7 @@ float rand_float(){
     return 0.1 * rand() / RAND_MAX;
 }
 
-int main(int argc, char *argv){
+int main(int argc, char *argv[]){
     float d = atof(argv[2]);
     int cnt = 0;
     int N = atoi(argv[1]);
