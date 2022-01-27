@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5)
 
-project(JosephusProblem)
+project(LinkedListInPointer)
 
-add_executable(JosephusProblem josephus_problem.c)
+add_executable(LinkedListInPointer main.c)
