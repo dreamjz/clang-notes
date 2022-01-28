@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 10000
+#define N 10
 
 const int INT_BIT_SIZE = sizeof(int) * 8;
 const int ARR_LEN = (N / INT_BIT_SIZE) + 1;
@@ -16,7 +16,7 @@ void print_arr(int a[]);
 int main(){
     // set all elements to 0
     int a[ARR_LEN];
-    memset(a, 0, sizeof(int) * ARR_LEN);
+    memset(a, 0,  ARR_LEN);
 
     // assume that every one is prime
     for (int i = 2; i < N; i++){
@@ -42,7 +42,7 @@ int main(){
     print_bit_arr(a);
 
     printf("Size of arr: %d bytes",sizeof(a));
-
+    printf("s;%d, S:%d", sizeof(int),INT_BIT_SIZE);
     return 0;
 }
 
@@ -55,7 +55,7 @@ void set_bit(int a[], int k){
     unsigned int flag = 1;
     // shifted pos positions
     flag = flag << pos; 
-    // set the bit at the k-th position in a[i]
+    // set the bit at the kth position in a[i]
     a[i] = a[i] | flag;
 }
 
