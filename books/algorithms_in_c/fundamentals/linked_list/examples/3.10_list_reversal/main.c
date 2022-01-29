@@ -58,20 +58,27 @@ Link new_list(int len) {
         Link node = malloc(sizeof(*node));
         node->item = i;
 
+        // add to tail of the lists
         node->next = x->next;
         x->next = node;
+        // move x to next
         x = node;
     }
     return head;
 }
 
-int main() {
-    Link list = new_list(10);
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        printf("Usage: ListReversal list_length");
+        return 1;
+    }
+    int n = atoi(argv[1]);
+    Link list = new_list(n);
     printf("Before: \n");
     print_list(list);
-    printf("\n\n");
+    printf("\n");
     Link reverseLink = reverse(list);
-    printf("\nAfter: \n");    
+    printf("\nAfter: \n");
     print_list(reverseLink);
     printf("\n");
     return 0;
