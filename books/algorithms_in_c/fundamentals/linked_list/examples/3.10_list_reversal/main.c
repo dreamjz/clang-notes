@@ -3,83 +3,83 @@
 
 typedef struct node* Link;
 struct node {
-    int item;
-    Link next;
+  int item;
+  Link next;
 };
 
 Link reverse(Link head) {
-    Link r = NULL;
+  Link r = NULL;
 
-    for (Link y = head; y != NULL;) {
-        // save y to tmp node
-        // The variable is allocated once, when the function is called 
-        // (https://stackoverflow.com/questions/7959573/declaring-variables-inside-loops-good-practice-or-bad-practice)
-        Link tmp = y->next;
-        // y point to r(head of reverse list)
-        y->next = r;
-        // move r to y
-        r = y;
-        // move y to next
-        y = tmp;
-    }
-    // return the new head of reverse list 
-    return r;
+  for (Link y = head; y != NULL;) {
+    // save y to tmp node
+    // The variable is allocated once, when the function is called
+    // (https://stackoverflow.com/questions/7959573/declaring-variables-inside-loops-good-practice-or-bad-practice)
+    Link tmp = y->next;
+    // y point to r(head of reverse list)
+    y->next = r;
+    // move r to y
+    r = y;
+    // move y to next
+    y = tmp;
+  }
+  // return the new head of reverse list
+  return r;
 }
 
 void print_list(Link head) {
-    printf("[");
-    for (Link x = head; x != NULL; x = x->next) {
-        printf("%d ", x->item);
-    }
-    printf("]");
+  printf("[");
+  for (Link x = head; x != NULL; x = x->next) {
+    printf("%d ", x->item);
+  }
+  printf("]");
 }
 
 void print_node(Link node) {
-    printf("{item: %d, next: %p", node->item, node->next);
+  printf("{item: %d, next: %p", node->item, node->next);
 }
 
 void print_list_verbose(Link head) {
-    printf("[");
-    for (Link x = head; x != NULL; x = x->next) {
-        print_node(x);
-        printf(", ");
-    }
-    printf("]");
+  printf("[");
+  for (Link x = head; x != NULL; x = x->next) {
+    print_node(x);
+    printf(", ");
+  }
+  printf("]");
 }
 
 Link new_list(int len) {
-    Link head = malloc(sizeof(*head));
-    head->item = 0;
-    head->next = NULL;
+  Link head = malloc(sizeof(*head));
+  head->item = 0;
+  head->next = NULL;
 
-    Link x = head;
-    // create a list that item is from 0 to len-1
-    for (int i = 1; i < len; i++) {
-        Link node = malloc(sizeof(*node));
-        node->item = i;
+  Link x = head;
+  // create a list that item is from 0 to len-1
+  for (int i = 1; i < len; i++) {
+    Link node = malloc(sizeof(*node));
+    node->item = i;
 
-        // add to tail of the lists
-        node->next = x->next;
-        x->next = node;
-        // move x to next
-        x = node;
-    }
-    return head;
+    // add to tail of the lists
+    node->next = x->next;
+    x->next = node;
+    // move x to next
+    x = node;
+  }
+  return head;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        printf("Usage: ListReversal list_length");
-        return 1;
-    }
-    int n = atoi(argv[1]);
-    Link list = new_list(n);
-    printf("Before: \n");
-    print_list(list);
-    printf("\n");
-    Link reverseLink = reverse(list);
-    printf("\nAfter: \n");
-    print_list(reverseLink);
-    printf("\n");
-    return 0;
+  if (argc < 2) {
+    printf("Usage: ListReversal list_length");
+    return 1;
+  }
+  int n = atoi(argv[1]);
+  Link list = new_list(n);
+  printf("Before: \n");
+  print_list(list);
+  printf("\n");
+  Link reverseLink = reverse(list);
+  printf("\nAfter: \n");
+  print_list(reverseLink);
+  printf("\n");
+  return 0;
 }
