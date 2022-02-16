@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-typedef struct node* Link;
+typedef struct node* link;
 struct node {
   int item;
-  Link next;
+  link next;
 };
 
-void print_node(Link n) {
+void print_node(link n) {
   printf("[item: %d, next: %d]\n", n->item, n->next->item);
 }
 
@@ -16,8 +16,8 @@ int main(int argc, char* argv[]) {
   int N = atoi(argv[1]);
   int M = atoi(argv[2]);
 
-  Link t = malloc(sizeof(*t));
-  Link x = t;
+  link t = malloc(sizeof(*t));
+  link x = t;
   t->item = 1;
   t->next = t;
 
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
       x = x->next;
     }
     // delete node x
-    Link d = x->next;
+    link d = x->next;
     x->next = d->next;
     // release mem
     free(d);

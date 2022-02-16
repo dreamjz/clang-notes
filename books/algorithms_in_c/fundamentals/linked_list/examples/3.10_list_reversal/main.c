@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node* Link;
+typedef struct node* link;
 struct node {
   int item;
-  Link next;
+  link next;
 };
 
-Link reverse(Link head) {
-  Link r = NULL;
+link reverse(link head) {
+  link r = NULL;
 
-  for (Link y = head; y != NULL;) {
+  for (link y = head; y != NULL;) {
     // save y to tmp node
     // The variable is allocated once, when the function is called
     // (https://stackoverflow.com/questions/7959573/declaring-variables-inside-loops-good-practice-or-bad-practice)
-    Link tmp = y->next;
+    link tmp = y->next;
     // y point to r(head of reverse list)
     y->next = r;
     // move r to y
@@ -26,36 +26,36 @@ Link reverse(Link head) {
   return r;
 }
 
-void print_list(Link head) {
+void print_list(link head) {
   printf("[");
-  for (Link x = head; x != NULL; x = x->next) {
+  for (link x = head; x != NULL; x = x->next) {
     printf("%d ", x->item);
   }
   printf("]");
 }
 
-void print_node(Link node) {
+void print_node(link node) {
   printf("{item: %d, next: %p", node->item, node->next);
 }
 
-void print_list_verbose(Link head) {
+void print_list_verbose(link head) {
   printf("[");
-  for (Link x = head; x != NULL; x = x->next) {
+  for (link x = head; x != NULL; x = x->next) {
     print_node(x);
     printf(", ");
   }
   printf("]");
 }
 
-Link new_list(int len) {
-  Link head = malloc(sizeof(*head));
+link new_list(int len) {
+  link head = malloc(sizeof(*head));
   head->item = 0;
   head->next = NULL;
 
-  Link x = head;
+  link x = head;
   // create a list that item is from 0 to len-1
   for (int i = 1; i < len; i++) {
-    Link node = malloc(sizeof(*node));
+    link node = malloc(sizeof(*node));
     node->item = i;
 
     // add to tail of the lists
@@ -73,11 +73,11 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   int n = atoi(argv[1]);
-  Link list = new_list(n);
+  link list = new_list(n);
   printf("Before: \n");
   print_list(list);
   printf("\n");
-  Link reverseLink = reverse(list);
+  link reverseLink = reverse(list);
   printf("\nAfter: \n");
   print_list(reverseLink);
   printf("\n");
