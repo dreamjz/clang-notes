@@ -1,0 +1,1 @@
+// https://jokeme.top/p/clang_note2/#void-free-void--p-%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98
